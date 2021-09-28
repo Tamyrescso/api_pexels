@@ -1,0 +1,31 @@
+header, footer {
+  background-color: #232A34;
+  color: white;
+}
+
+header h1 {
+  margin: 0px;
+}
+
+#logo-trybexels {
+  width: 50px;
+  border-radius: 5px;
+}
+
+main section{
+  border: 1px solid black;
+  height: 89vh;
+}
+
+.form-control:focus {
+  border-color: #157347;
+  box-shadow: 0 0 0.6rem rgba(40, 167, 69, 1)
+}
+
+footer {
+  height: 40px;
+}
+
+footer p{
+  padding: 5px;
+}

@@ -5,37 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Trybexels</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header>
-      <section>
-        <img src="" alt="" />
+      <section class="d-flex p-2 align-items-center">
+        <img src="./assets/trybe.png" alt="logo da Trybexels" id="logo-trybexels" class="mx-2"/>
         <h1>Trybexels</h1>
       </section>
     </header>
 
-    <main>
-      <section>
-        <div>
-          <p>1. Escolha sua mídia</p>
-          <div>
-            <button>Fotos</button>
-            <button>Vídeos</button>
-          </div>
-          <div>
-            <p>2. Procure o tema preferido</p>
-            <input type="text" placeholder="Example: food"/>
-          </div>
-          <div>
-            <p>3. Escolha um item para visualizar</p>
-            <div></div>
-          </div>
-        </div>
-      </section>
-      <section></section>
+    <main class="container-fluid">
+      <div class="row">
+        <section class="p-2 col-3">
+            <div>
+              <p>1. Escolha sua mídia</p>
+              <div class="btn-group">
+                <button type="button" class="btn btn-success">Fotos</button>
+                <button type="button" class="btn btn-success">Vídeos</button>
+              </div>
+            </div>
+    
+              <div>
+                <p>2. Procure o tema preferido</p>
+                <input type="text" placeholder="Example: food" class="form-control"/>
+              </div>
+              <div>
+                <p>3. Escolha um item para visualizar</p>
+                <div><div id="photo"></div></div>
+              </div>
+          </section>
+          <section class="col">teste</section>
+      </div>
     </main>
-    <footer>
+    <footer class="text-center">
         <p>Desenvolvido por Débora, Gabriela, Lygia e Tamyres</p>
     </footer>
     <script src="./script.js"></script>
