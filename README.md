@@ -22,4 +22,4 @@ Projeto em grupo desenvolvido por:
 - [:white_check_mark:] 1: Criatividade
 - [:white_check_mark:] 2: Inovação
 - [:white_check_mark:] 3: Aplicabilidade
-- [:white_check_mark:] 4: Código
+- [:white_check_mark:] 4: Código 
