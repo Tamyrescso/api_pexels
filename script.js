@@ -5,7 +5,8 @@ async function getImage() {
         'Authorization': client,
     })
 
-    const response = await fetch('https://api.pexels.com/v1/search?query=nature&per_page=7', {
+
+    const response = await fetch('https://api.pexels.com/v1/search?query=london&per_page=9', {
         method: 'GET',
         headers,
     })
