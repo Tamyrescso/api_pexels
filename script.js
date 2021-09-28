@@ -11,9 +11,7 @@ async function getImage() {
         headers,
     })
     const data = await response.json();
-    const photo = data.photos[0].src.tiny;
-    image.src = photo
-
+    const photo = data.photos;
 }
 
 async function getVideo() {
@@ -31,6 +29,12 @@ async function getVideo() {
     video.src = videoFile;
     
 
+}
+
+function renderImage (fotos){
+    const photos = document.querySelector('.photo');
+    // fotos
+    
 }
 
 window.onload = () => {
