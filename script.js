@@ -1,6 +1,4 @@
 const client = '563492ad6f91700001000001aea7b8da8c8846e0a4ae821bc72bf91d';
-const image = document.getElementById('example');
-const video = document.getElementById('video');
 
 async function getImage() {
     const headers = new Headers({
