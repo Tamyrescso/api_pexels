@@ -11,6 +11,7 @@
       integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -32,22 +33,25 @@
           <div>
             <p>1. Escolha sua mídia</p>
             <div class="btn-group">
-              <button type="button" class="btn btn-success">Fotos</button>
-              <button type="button" class="btn btn-success">Vídeos</button>
+              <button type="button" class="photo-btn btn btn-success">Fotos</button>
+              <button type="button" class="video-btn btn btn-success">Vídeos</button>
             </div>
           </div>
 
           <div>
             <p>2. Procure o tema preferido</p>
-            <input
+            <div class="d-flex">
+              <input
               type="text"
               placeholder="Example: food"
-              class="form-control"
-            />
+              class="query form-control"
+              /> 
+              <button class = ' query-btn btn btn-success'><i class="bi bi-search"></i></button>
+            </div>
           </div>
           <div>
             <p>3. Escolha um item para visualizar</p>
-            <div class="card-group">
+            <div class="grid row row-cols-2 ">
             </div>
           </div>
         </section>
