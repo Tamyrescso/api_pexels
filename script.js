@@ -6,12 +6,13 @@ async function getImage() {
     })
 
 
-    const response = await fetch('https://api.pexels.com/v1/search?query=london&per_page=9', {
+    const response = await fetch('https://api.pexels.com/v1/search?query=london&per_page=2', {
         method: 'GET',
         headers,
     })
     const data = await response.json();
     const photo = data.photos;
+    renderImage(photo);
 }
 
 async function getVideo() {
@@ -24,17 +25,33 @@ async function getVideo() {
         headers,
     })
     const data = await response.json();
-    console.log(data.videos[0].video_files[0].link)
     const videoFile = data.videos[0].video_files[0].link;
-    video.src = videoFile;
     
 
 }
 
-function renderImage (fotos){
-    const photos = document.querySelector('.photo');
-    // fotos
-    
+function createElements(element, classElement) {
+    const newElement = document.createElement(element);
+    newElement.className = classElement;
+    return newElement;
+}
+
+function renderImage (photos){
+    const photoParent = document.querySelector('.card-group');
+    photos.forEach((photo) => {
+        const divCard = createElements('div', 'card');
+        const newPhoto = createElements('img', 'card-img-top');
+        const cardBody = createElements('div', 'card-body');
+        const text = createElements('p', 'card-title');
+
+        newPhoto.src = photo.src.small;
+        text.innerText = photo.photographer;
+
+        photoParent.appendChild(divCard);
+        divCard.appendChild(newPhoto);
+        divCard.appendChild(cardBody);
+        cardBody.appendChild(text);
+    })
 }
 
 window.onload = () => {
