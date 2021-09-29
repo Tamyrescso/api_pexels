@@ -44,13 +44,19 @@ main section{
 }
 
 .imageSelected {
+  margin-top: 100px;
   max-width: 80%;
   max-height: 80%;
 }
 
 .videoSelected {
+  margin-top: 100px;
   width: 90%;
   height: 60%;
+}
+
+.right {
+  text-align: center;
 }
 
 footer {
