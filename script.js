@@ -3,7 +3,6 @@ const photoBtn = document.querySelector('.photo-btn');
 const videoBtn = document.querySelector('.video-btn');
 const query = document.querySelector('.query');
 const queryBtn = document.querySelector('.query-btn');
-const select = document.querySelector('.selected');
 
 async function getImage() {
     const headers = new Headers({
@@ -45,7 +44,7 @@ async function getVideo() {
         'Authorization': client,
     })
 
-    const response = await fetch(`https://api.pexels.com/videos/search?query=${query.value}&per_page=7`, {
+    const response = await fetch(`https://api.pexels.com/videos/search?query=${query.value}&per_page=8`, {
         method: 'GET',
         headers,
     })
@@ -81,6 +80,7 @@ function renderImage (photos){
 }
 
 function addSelected(event){
+    const select = document.querySelector('.selected');
     if (!select){
         event.target.classList.add('selected');
     } else {
@@ -90,19 +90,15 @@ function addSelected(event){
 }
 
 function chooseType() {
+    const select = document.querySelector('.selected');
     if (!select){
         alert('Selecione o tipo de mídia');
     } else if (select.classList.contains('photo-btn')){
         return getImage();
     }
-    // return getVideo();
+    return getVideo();
 }
 
 queryBtn.addEventListener('click',chooseType);
 photoBtn.addEventListener('click', addSelected);
 videoBtn.addEventListener('click', addSelected);
-
-
-
-window.onload = () => {
-}
