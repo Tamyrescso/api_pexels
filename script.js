@@ -1,5 +1,6 @@
 const client = '563492ad6f91700001000001aea7b8da8c8846e0a4ae821bc72bf91d';
 const photoBtn = document.querySelector('.photo-btn');
+const videoBtn = document.querySelector('.video-btn');
 const query = document.querySelector('.query');
 const queryBtn = document.querySelector('.query-btn');
 const select = document.querySelector('.selected');
@@ -19,19 +20,38 @@ async function getImage() {
     renderImage(photo);
 }
 
+function renderVideo(videos) {
+    const videoParent = document.querySelector('.grid');
+    videos.forEach((video) => {
+        const cols = createElements('div', 'col');
+        const divCard = createElements('div', 'card');
+        const newVideo = createElements('iframe', 'card-video-top');
+        const cardBody = createElements('div', 'card-body');
+        const text = createElements('p', 'card-text');
+
+        newVideo.src = video.video_files[0].link;
+        text.innerText = video.user.name;
+
+        videoParent.appendChild(cols);
+        cols.appendChild(divCard);
+        divCard.appendChild(newVideo);
+        divCard.appendChild(cardBody);
+        cardBody.appendChild(text);
+    })
+}
+
 async function getVideo() {
     const headers = new Headers({
         'Authorization': client,
     })
 
-    const response = await fetch('https://api.pexels.com/videos/search?query=nature&per_page=7', {
+    const response = await fetch(`https://api.pexels.com/videos/search?query=${query.value}&per_page=7`, {
         method: 'GET',
         headers,
     })
     const data = await response.json();
-    const videoFile = data.videos[0].video_files[0].link;
-    
-
+    const videos = data.videos;
+    renderVideo(videos);
 }
 
 function createElements(element, classElement) {
@@ -75,14 +95,14 @@ function chooseType() {
     } else if (select.classList.contains('photo-btn')){
         return getImage();
     }
-    return getVideo();
+    // return getVideo();
 }
 
 queryBtn.addEventListener('click',chooseType);
 photoBtn.addEventListener('click', addSelected);
+videoBtn.addEventListener('click', addSelected);
 
 
 
 window.onload = () => {
-   getVideo()
 }
