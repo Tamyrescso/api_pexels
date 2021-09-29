@@ -158,3 +158,5 @@ function chooseType() {
 queryBtn.addEventListener('click',chooseType);
 photoBtn.addEventListener('click', addSelected);
 videoBtn.addEventListener('click', addSelected);
+
+module.exports = {renderVideo, renderImage};
