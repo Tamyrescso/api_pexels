@@ -43,6 +43,16 @@ main section{
   margin-bottom: 10px;
 }
 
+.imageSelected {
+  max-width: 80%;
+  max-height: 80%;
+}
+
+.videoSelected {
+  width: 90%;
+  height: 60%;
+}
+
 footer {
   height: 40px;
   position: relative;
