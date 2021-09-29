@@ -5,19 +5,12 @@ const query = document.querySelector('.query');
 const queryBtn = document.querySelector('.query-btn');
 const fileCard = document.querySelector('.right');
 
-async function getImage() {
-    const headers = new Headers({
-        'Authorization': client,
-    })
 
-
-    const response = await fetch(`https://api.pexels.com/v1/search?query=${query.value}&per_page=12`, {
-        method: 'GET',
-        headers,
-    })
-    const data = await response.json();
-    const photo = data.photos;
-    renderImage(photo);
+function createElements(element, classElement, classId) {
+    const newElement = document.createElement(element);
+    newElement.classList.add(classElement);
+    newElement.classList.add(classId);
+    return newElement;
 }
 
 function showVideo(video) {
@@ -27,6 +20,15 @@ function showVideo(video) {
     videoZoom.src = video;
 
     fileCard.appendChild(videoZoom);
+}
+
+function showImage(image) {
+    const imageZoom = createElements('img', 'rounded', 'imageSelected');
+
+    fileCard.innerHTML = '';
+    imageZoom.src = image;
+
+    fileCard.appendChild(imageZoom);
 }
 
 async function getVideoById(event) {
@@ -41,6 +43,20 @@ async function getVideoById(event) {
     const data = await response.json();
     const video = data.video_files[0].link;
     showVideo(video);
+}
+
+async function getImageById(event) {
+    const headers = new Headers({
+        'Authorization': client,
+    })
+    const element = event.target
+    const response = await fetch(`https://api.pexels.com/v1/photos/${element.classList[1]}`, {
+        method: 'GET',
+        headers,
+    })
+    const data = await response.json();
+    const photo = data.src.large;
+    showImage(photo);
 }
 
 function renderVideo(videos) {
@@ -65,51 +81,6 @@ function renderVideo(videos) {
     })
 }
 
-async function getVideo() {
-    const headers = new Headers({
-        'Authorization': client,
-    })
-
-    const response = await fetch(`https://api.pexels.com/videos/search?query=${query.value}&per_page=8`, {
-        method: 'GET',
-        headers,
-    })
-    const data = await response.json();
-    const videos = data.videos;
-    console.log(videos);
-    renderVideo(videos);
-}
-
-function showImage(image) {
-    const imageZoom = createElements('img', 'rounded', 'imageSelected');
-
-    fileCard.innerHTML = '';
-    imageZoom.src = image;
-
-    fileCard.appendChild(imageZoom);
-}
-
-async function getImageById(event) {
-    const headers = new Headers({
-        'Authorization': client,
-    })
-    const element = event.target
-    const response = await fetch(`https://api.pexels.com/v1/photos/${element.classList[1]}`, {
-        method: 'GET',
-        headers,
-    })
-    const data = await response.json();
-    const photo = data.src.large;
-    showImage(photo);
-}
-
-function createElements(element, classElement, classId) {
-    const newElement = document.createElement(element);
-    newElement.classList.add(classElement);
-    newElement.classList.add(classId);
-    return newElement;
-}
-
 function renderImage (photos){
     const photoParent = document.querySelector('.grid');
     photos.forEach((photo) => {
@@ -132,14 +103,31 @@ function renderImage (photos){
     })
 }
 
-function addSelected(event){
-    const select = document.querySelector('.selected');
-    if (!select){
-        event.target.classList.add('selected');
-    } else {
-        select.classList.remove('selected');
-        event.target.classList.add('selected');
-    }
+async function getVideo() {
+    const headers = new Headers({
+        'Authorization': client,
+    })
+
+    const response = await fetch(`https://api.pexels.com/videos/search?query=${query.value}&per_page=8`, {
+        method: 'GET',
+        headers,
+    })
+    const data = await response.json();
+    const videos = data.videos;
+    renderVideo(videos);
+}
+
+async function getImage() {
+    const headers = new Headers({
+        'Authorization': client,
+    })
+    const response = await fetch(`https://api.pexels.com/v1/search?query=${query.value}&per_page=12`, {
+        method: 'GET',
+        headers,
+    })
+    const data = await response.json();
+    const photo = data.photos;
+    renderImage(photo);
 }
 
 function chooseType() {
@@ -155,8 +143,17 @@ function chooseType() {
     }
 }
 
-queryBtn.addEventListener('click',chooseType);
+queryBtn.addEventListener('click', chooseType);
+
+function addSelected(event){
+    const select = document.querySelector('.selected');
+    if (!select){
+        event.target.classList.add('selected');
+    } else {
+        select.classList.remove('selected');
+        event.target.classList.add('selected');
+    }
+}
+
 photoBtn.addEventListener('click', addSelected);
 videoBtn.addEventListener('click', addSelected);
-
-module.exports = {renderVideo, renderImage};
