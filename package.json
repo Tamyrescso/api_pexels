@@ -1,0 +1,24 @@
+{
+  "name": "api_pexels",
+  "version": "1.0.0",
+  "description": "Projeto em grupo desenvolvido por: - [:white_check_mark:] 1: <a href=\"https://www.linkedin.com/in/deborafantini/\" target=\"_blank\">Débora Fantini </a> - [:white_check_mark:] 2: <a href=\"https://www.linkedin.com/in/gabriela-veloso-1a936156/\" target=\"_blank\">Gabriela Veloso </a> - [:white_check_mark:] 3: <a href=\"https://www.linkedin.com/in/lygiiadias/\" target=\"_blank\">Lygia Dias </a> - [:white_check_mark:] 4: <a href=\"https://www.linkedin.com/in/tcso/\" target=\"_blank\"> Tamyres Oliveira</a>",
+  "main": "script.js",
+  "dependencies": {
+    "jest": "^27.2.4"
+  },
+  "devDependencies": {"jest": "^27.2.4"},
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tamyrescso/api_pexels.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tamyrescso/api_pexels/issues"
+  },
+  "homepage": "https://github.com/Tamyrescso/api_pexels#readme"
+}
