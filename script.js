@@ -57,36 +57,29 @@ function renderImage (photos){
         divCard.appendChild(newPhoto);
         divCard.appendChild(cardBody);
         cardBody.appendChild(text);
-
     })
 }
 
 function addSelected(event){
-    
     if (!select){
         event.target.classList.add('selected');
     } else {
         select.classList.remove('selected');
         event.target.classList.add('selected');
     }
-
-
 }
 
 function chooseType() {
     if (!select){
-        alert('Selecione o tipo de mídia')
+        alert('Selecione o tipo de mídia');
+    } else if (select.classList.contains('photo-btn')){
+        return getImage();
     }
-    else if(select.classList.contains('photo-btn')){
-        return getImage()
-    }
-       return getVideo() 
-
+    return getVideo();
 }
 
-queryBtn.addEventListener('click',chooseType)
-
-photoBtn.addEventListener('click', addSelected)
+queryBtn.addEventListener('click',chooseType);
+photoBtn.addEventListener('click', addSelected);
 
 
 
