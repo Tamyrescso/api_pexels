@@ -29,3 +29,17 @@ footer {
 footer p{
   padding: 5px;
 }
+
+.grid{
+  width: 300px;
+  overflow-y:scroll;
+  height: 350px;
+}
+
+.card-text {
+  font-size: 10px;
+}
+
+.card {
+  margin-bottom: 10px;
+}
