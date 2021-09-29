@@ -13,8 +13,11 @@ header h1 {
 }
 
 main section{
-  border: 1px solid black;
   height: 89vh;
+}
+
+.step {
+  margin-top: 1rem;
 }
 
 .form-control:focus {
@@ -22,18 +25,14 @@ main section{
   box-shadow: 0 0 0.6rem rgba(40, 167, 69, 1)
 }
 
-footer {
-  height: 40px;
-}
-
-footer p{
-  padding: 5px;
+#grid-parent {
+  height: 80%;
 }
 
 .grid{
-  width: 300px;
-  overflow-y:scroll;
-  height: 350px;
+  width: inherit;
+  overflow-y: auto;
+  height: 90%;
 }
 
 .card-text {
@@ -42,4 +41,14 @@ footer p{
 
 .card {
   margin-bottom: 10px;
+}
+
+footer {
+  height: 40px;
+  position: relative;
+  bottom: 0;
+}
+
+.text-muted {
+  text-align: center;
 }

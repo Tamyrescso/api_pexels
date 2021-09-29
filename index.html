@@ -14,9 +14,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
+  <body class="d-flex flex-column">
     <header>
-      <section class="d-flex p-2 align-items-center">
+      <section class="d-flex p-2 align-items-center left">
         <img
           src="./assets/trybe.png"
           alt="logo da Trybexels"
@@ -26,40 +26,42 @@
         <h1>Trybexels</h1>
       </section>
     </header>
-
     <main class="container-fluid">
       <div class="row">
         <section class="p-2 col-3">
           <div>
-            <p>1. Escolha sua mídia</p>
+            <p class="step">1. Escolha sua mídia</p>
             <div class="btn-group">
               <button type="button" class="photo-btn btn btn-success">Fotos</button>
               <button type="button" class="video-btn btn btn-success">Vídeos</button>
             </div>
           </div>
-
           <div>
-            <p>2. Procure o tema preferido</p>
+            <p class="step">2. Procure o tema preferido</p>
             <div class="d-flex">
               <input
               type="text"
               placeholder="Example: food"
               class="query form-control"
               /> 
-              <button class = ' query-btn btn btn-success'><i class="bi bi-search"></i></button>
+              <button class = 'query-btn btn btn-success'><i class="bi bi-search"></i></button>
             </div>
           </div>
-          <div>
-            <p>3. Escolha um item para visualizar</p>
+          <div id="grid-parent">
+            <p class="step">3. Escolha um item para visualizar</p>
             <div class="grid row row-cols-2 ">
             </div>
           </div>
         </section>
-        <section class="col">teste</section>
+        <section class="col right">teste</section>
       </div>
     </main>
-    <footer class="text-center">
-      <p>Desenvolvido por Débora, Gabriela, Lygia e Tamyres</p>
+    <footer class="footer py-2">
+      <div class="container">
+        <span class="text-muted">
+          <p>Desenvolvido por Débora, Gabriela, Lygia e Tamyres</p>
+        </span>
+      </div>
     </footer>
     <script src="./script.js"></script>
   </body>
